@@ -16,9 +16,9 @@ const perguntas = [
         enunciado: "Quais desafios você enfrenta ao incorporar tecnologias em suas aulas?",
         alternativas: [
             "Curva de aprendizado das novas ferramentas e plataformas.",
-            "Dificuldade de acesso à internet estável e dispositivos suficientes para todos os alunos."
+            "Dificuldade de acesso à internet estável e dispositivos suficientes para todos os alunos.",
         ]
-    }
+    },
     {
         enunciado: "Como você utiliza as tecnologias para promover a colaboração entre os alunos?",
         alternativas: [
@@ -32,22 +32,31 @@ const perguntas = [
             "Sim, as tecnologias oferecem recursos interativos e interessantes.",
             "Não necessariamente, a motivação dos alunos depende mais da metodologia de ensino do que das tecnologias."
         ]
-    }
+    },
     {
-        enunciado: "Como você vê o futuro da educação com o avanço contínuo das tecnologias?        ",
+        enunciado: "Como você vê o futuro da educação com o avanço contínuo das tecnologias?",
         alternativas: [
-            "Promissor, as tecnologias têm o potencial de transformar profundamente a forma como aprendemos.",
+           "Promissor, as tecnologias têm o potencial de transformar profundamente a forma como aprendemos.",
             "Incerto, há preocupações sobre como integrar as tecnologias de forma eficaz e equitativa na educação."
         ]
     },
-]; 
+];
 
 let atual = 0;
 let perguntaAtual;
 
 function mostraPergunta() {
-    perguntaAtual = perguntas[atual];
-    caixaPerguntas.textContent = perguntaAtual.enunciado;
+  perguntaAtual = perguntas[atual];
+  caixaPerguntas.textContent = perguntaAtual.enunciado;
+  mostraAlternativas();
 }
 
-mostraPergunta()
+function mostraAlternativas() {
+    for (const alternativa of perguntaAtual.alternativas){
+      const botaoAlternativas = document.createElement("button");
+      botaoAlternativas.textContent = alternativa;
+      caixaAlternativas.appendChild(botaoAlternativas);
+    }
+  }
+
+mostraPergunta();
